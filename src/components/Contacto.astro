@@ -1,0 +1,43 @@
+---
+interface Props {
+  email: string;
+  linkedin: string;
+  github: string;
+  textos: {
+    etiqueta: string;
+    titulo: string;
+    pregunta: string;
+    descripcion: string;
+    etiquetaNombre: string;
+    placeholderNombre: string;
+    etiquetaCorreo: string;
+    placeholderCorreo: string;
+    etiquetaMensaje: string;
+    placeholderMensaje: string;
+    boton: string;
+  };
+}
+const { email, linkedin, github, textos } = Astro.props;
+---
+
+<div class="section-intro">
+  <p class="eyebrow">{textos.etiqueta}</p>
+  <h2 class="section-title">{textos.titulo}</h2>
+</div>
+<div class="contact-layout">
+  <section class="contact-card">
+    <h2 class="contact-title">{textos.pregunta}</h2>
+    <p>{textos.descripcion}</p>
+    <div class="contact-links">
+      <a href={`mailto:${email}`}><i class="bi bi-envelope"></i>{email}</a>
+      <a href={linkedin} target="_blank" rel="noreferrer"><i class="bi bi-linkedin"></i>LinkedIn</a>
+      <a href={github} target="_blank" rel="noreferrer"><i class="bi bi-github"></i>GitHub</a>
+    </div>
+  </section>
+  <form class="contact-card contact-form" action={`mailto:${email}`} method="post" enctype="text/plain">
+    <label>{textos.etiquetaNombre}<input type="text" name="nombre" placeholder={textos.placeholderNombre} required /></label>
+    <label>{textos.etiquetaCorreo}<input type="email" name="email" placeholder={textos.placeholderCorreo} required /></label>
+    <label>{textos.etiquetaMensaje}<textarea name="mensaje" placeholder={textos.placeholderMensaje} required></textarea></label>
+    <button class="button button-primary" type="submit"><i class="bi bi-send"></i> {textos.boton}</button>
+  </form>
+</div>

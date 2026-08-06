@@ -1,0 +1,15 @@
+---
+interface Props {
+  icono: string;
+  nombre: string;
+  color: string;
+}
+
+const astroProps = Astro.props as Props;
+const { color, icono, nombre } = astroProps;
+---
+
+<div class=`tecnologia-box ${color}`>
+  <span class=`tecnologia-icon ${icono}`></span>
+  <h6 class="tecnologia-nombre">{nombre}</h6>
+</div>

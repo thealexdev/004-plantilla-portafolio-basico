@@ -1,0 +1,15 @@
+---
+// Badge.astro
+interface Props {
+    nombre: string;
+    icono: string;
+    color: string;
+}
+
+const astroProps = Astro.props as Props;
+const { nombre, icono, color } = astroProps;
+---
+<span class={`badge ${color} text-light`}>
+    <i class={icono}></i>
+    {nombre}
+</span>

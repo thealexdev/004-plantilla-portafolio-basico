@@ -1,0 +1,28 @@
+---
+interface Props {
+  marca: string;
+  email: string;
+  linkedin: string;
+  github: string;
+  textos: { mensaje: string; volverArriba: string };
+}
+
+const { marca, email, linkedin, github, textos } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-main">
+    <a class="footer-brand" href="#inicio">{marca}</a>
+    <p class="footer-message">{textos.mensaje}</p>
+    <div class="footer-links">
+      <a href={`mailto:${email}`}>Email</a>
+      <a href={linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href={github} target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© {year} {marca}</span>
+    <a href="#inicio">{textos.volverArriba} <i class="bi bi-arrow-up"></i></a>
+  </div>
+</footer>

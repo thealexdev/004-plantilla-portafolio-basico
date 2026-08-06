@@ -1,0 +1,85 @@
+{
+  "site": {
+    "title": "Mi portafolio",
+    "language": "es",
+    "favicon": "/imgs/favicon.png"
+  },
+  "perfil": {
+    "nombre": "Tu nombre",
+    "marca": "tu.marca",
+    "rol": "Tu especialidad",
+    "disponibilidad": "Disponible para colaborar",
+    "titular": "Una propuesta de valor clara para tu próximo proyecto.",
+    "descripcion": "Escribe aquí una breve presentación sobre tu experiencia, enfoque y el tipo de trabajo que realizas.",
+    "ubicacion": "Tu ciudad, país",
+    "email": "tu-correo@ejemplo.com",
+    "linkedin": "https://www.linkedin.com/in/tu-perfil",
+    "github": "https://github.com/tu-usuario",
+    "cv": "/tu-cv.pdf",
+    "avatar": "/imgs/avatar-placeholder.svg"
+  },
+  "textos": {
+    "enlaceCabecera": "Hablemos",
+    "etiquetaPortafolio": "PORTAFOLIO",
+    "botonProyectos": "Ver proyectos",
+    "botonCv": "Descargar CV",
+    "tituloPanel": "Explora mi perfil",
+    "seccionExperiencia": { "etiqueta": "RECORRIDO", "titulo": "Experiencia y formación" },
+    "seccionProyectos": { "etiqueta": "SELECCIÓN", "titulo": "Proyectos recientes" },
+    "seccionHabilidades": { "etiqueta": "HERRAMIENTAS", "titulo": "Mi caja de herramientas" },
+    "seccionContacto": {
+      "etiqueta": "CONTACTO",
+      "titulo": "Construyamos algo útil.",
+      "pregunta": "¿Tienes un proyecto en mente?",
+      "descripcion": "Estoy disponible para colaborar en productos digitales, sitios web y nuevas ideas.",
+      "etiquetaNombre": "Nombre",
+      "placeholderNombre": "Tu nombre",
+      "etiquetaCorreo": "Correo",
+      "placeholderCorreo": "tu@email.com",
+      "etiquetaMensaje": "Mensaje",
+      "placeholderMensaje": "Cuéntame sobre tu proyecto",
+      "boton": "Enviar mensaje"
+    },
+    "pie": { "mensaje": "Diseñado y desarrollado con intención.", "volverArriba": "Volver arriba" }
+  },
+  "experiencia": [
+    {
+      "titulo": "Puesto o especialidad",
+      "fecha": "Empresa, organización o periodo",
+      "parrafo": "Describe aquí tus responsabilidades, resultados o aprendizajes más relevantes."
+    },
+    {
+      "titulo": "Formación o certificación",
+      "fecha": "Institución o periodo",
+      "parrafo": "Añade una formación, certificación o experiencia que quieras destacar."
+    }
+  ],
+  "proyectos": [
+    {
+      "imagen": "/imgs/project-placeholder.svg",
+      "href": "https://example.com",
+      "titulo": "Proyecto destacado 01",
+      "tecnologias": [
+        { "nombre": "HTML", "icono": "bx bxl-html5", "color": "bg-html" },
+        { "nombre": "CSS", "icono": "bx bxl-css3", "color": "bg-css" },
+        { "nombre": "JavaScript", "icono": "bx bxl-javascript", "color": "bg-js" }
+      ]
+    },
+    {
+      "imagen": "/imgs/project-placeholder.svg",
+      "href": "https://example.com",
+      "titulo": "Proyecto destacado 02",
+      "tecnologias": [
+        { "nombre": "Astro", "icono": "bi bi-rocket-fill", "color": "bg-astro" },
+        { "nombre": "Bootstrap", "icono": "bi bi-bootstrap-fill", "color": "bg-bootstrap" }
+      ]
+    }
+  ],
+  "tecnologias": [
+    { "color": "bg-html", "icono": "bix bx bxl-html5", "nombre": "HTML" },
+    { "color": "bg-css", "icono": "bix bx bxl-css3", "nombre": "CSS" },
+    { "color": "bg-js", "icono": "bix bx bxl-javascript", "nombre": "JavaScript" },
+    { "color": "bg-astro", "icono": "bix bi-rocket-fill", "nombre": "Astro" },
+    { "color": "bg-git", "icono": "bix bi-git", "nombre": "Git" }
+  ]
+}

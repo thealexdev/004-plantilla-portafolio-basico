@@ -1,0 +1,35 @@
+---
+// Card.astro
+import Badge from "./Badge.astro";
+
+interface Props {
+  imagen: string;
+  titulo: string;
+  href: string;
+  tecnologias: { nombre: string; icono: string; color: string }[];
+}
+
+const astroProps = Astro.props as Props;
+const { imagen, titulo, href, tecnologias } = astroProps;
+---
+
+<article class="project-card">
+    <img src={imagen} alt={`Vista previa de ${titulo}`} />
+    <div class="project-body">
+      <div class="project-title-row">
+        <h3>{titulo}</h3>
+        <a target="_blank" rel="noreferrer" href={href} class="project-link" aria-label={`Ver ${titulo}`}><i class="bi bi-arrow-up-right"></i></a>
+      </div>
+      <div class="contenedor-badges">
+        {
+          tecnologias.map((tecnologia, index) => (
+            <Badge
+              nombre={tecnologia.nombre}
+              icono={tecnologia.icono}
+              color={tecnologia.color}
+            />
+          ))
+        }
+      </div>
+    </div>
+</article>

@@ -1,0 +1,153 @@
+---
+// Importando los componentes
+import Card from "./Card.astro";
+import Experiencia from "./Experiencia.astro";
+import Tecnologias from "./Tecnologias.astro";
+import Contacto from "./Contacto.astro";
+import Footer from "./Footer.astro";
+import Scripts from "./Scripts.astro";
+
+import portfolio from "../config/portfolio.json";
+
+const { perfil, textos, experiencia, proyectos, tecnologias } = portfolio;
+---
+
+<Scripts />
+<main class="portfolio-shell" id="inicio">
+    <header class="site-header">
+        <a class="wordmark" href="#inicio">{perfil.marca}</a>
+        <div class="availability"><span></span>{perfil.disponibilidad}</div>
+        <a class="header-link" href={`mailto:${perfil.email}`}>{textos.enlaceCabecera} <i class="bi bi-arrow-up-right"></i></a>
+    </header>
+
+    <section class="hero-grid">
+        <div class="hero-intro">
+            <div class="profile-line">
+                <img src={perfil.avatar} alt={`Retrato de ${perfil.nombre}`} width="72" height="72" />
+                <div><p>{perfil.nombre}</p><span>{perfil.rol} · {perfil.ubicacion}</span></div>
+            </div>
+            <p class="eyebrow">{textos.etiquetaPortafolio}</p>
+            <h1 class="hero-title">{perfil.titular}</h1>
+            <p class="hero-copy">{perfil.descripcion}</p>
+            <div class="hero-actions">
+                <a class="button button-primary" data-bs-toggle="tab" href="#contenido2"><i class="bi bi-grid-1x2"></i> {textos.botonProyectos}</a>
+                <a class="button button-secondary" target="_blank" rel="noreferrer" href={perfil.cv}><i class="bi bi-download"></i> {textos.botonCv}</a>
+            </div>
+            <div class="social-row">
+                <a href={perfil.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href={perfil.github} target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href={`mailto:${perfil.email}`} aria-label="Correo electrónico"><i class="bi bi-envelope"></i></a>
+            </div>
+        </div>
+
+        <div class="content-panel">
+            <div class="panel-heading">
+                <p>{textos.tituloPanel}</p>
+                <span>01 / 04</span>
+            </div>
+            <div class="panel-tabs">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="nav-item">
+                        <a
+                            class="nav-link active"
+                            id="tab1"
+                            data-bs-toggle="tab"
+                            href="#contenido1">Experiencia</a
+                        >
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            id="tab2"
+                            data-bs-toggle="tab"
+                            href="#contenido2"
+                            >Proyectos
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            id="tab3"
+                            data-bs-toggle="tab"
+                            href="#contenido3"
+                            >Habilidades
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            class="nav-link"
+                            id="tab4"
+                            data-bs-toggle="tab"
+                            href="#contenido4"
+                            >Contacto
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="contenido1">
+                        <div class="section-intro">
+                            <p class="eyebrow">{textos.seccionExperiencia.etiqueta}</p>
+                            <h2 class="section-title">{textos.seccionExperiencia.titulo}</h2>
+                        </div>
+                        <div class="experience-list">
+                            {
+                                experiencia.map((exps) => (
+                                    <Experiencia
+                                        titulo={exps.titulo}
+                                        fecha={exps.fecha}
+                                        parrafo={exps.parrafo}
+                                    />
+                                ))
+                            }
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="contenido2">
+                        <div class="section-intro">
+                            <p class="eyebrow">{textos.seccionProyectos.etiqueta}</p>
+                            <h2 class="section-title">{textos.seccionProyectos.titulo}</h2>
+                        </div>
+                        <div class="project-grid">
+                            {
+                                proyectos.map((card) => (
+                                    <Card
+                                        imagen={card.imagen}
+                                        href={card.href}
+                                        titulo={card.titulo}
+                                        tecnologias={card.tecnologias}
+                                    />
+                                ))
+                            }
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="contenido3">
+                        <div class="section-intro">
+                            <p class="eyebrow">{textos.seccionHabilidades.etiqueta}</p>
+                            <h2 class="section-title">{textos.seccionHabilidades.titulo}</h2>
+                        </div>
+                        <div class="tecnologia-container">
+                            {
+                                tecnologias.map(
+                                    (tec) => (
+                                        <Tecnologias
+                                            color={tec.color}
+                                            nombre={tec.nombre}
+                                            icono={tec.icono}
+                                        />
+                                    )
+                                )
+                            }
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="contenido4">
+                        <Contacto email={perfil.email} linkedin={perfil.linkedin} github={perfil.github} textos={textos.seccionContacto} />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <Footer marca={perfil.marca} email={perfil.email} linkedin={perfil.linkedin} github={perfil.github} textos={textos.pie} />
+</main>

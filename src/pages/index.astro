@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import portfolio from "../config/portfolio.json";
+
+// Scripts
+// Componentes
+import Hero from "../components/Hero.astro";
+import Spinner from "../components/Spinner.astro";
+---
+
+<Layout title={portfolio.site.title} language={portfolio.site.language} favicon={portfolio.site.favicon}>
+    <Spinner />
+    <Hero />
+</Layout>
